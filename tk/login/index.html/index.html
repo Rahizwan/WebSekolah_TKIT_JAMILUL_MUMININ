@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TKIT Jamilul Mu'minin - Makassar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .school-info h2 {
+      color: #2d6016;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .school-info p {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #2d6016;
+    }
+
+    .login-btn {
+      background: linear-gradient(135deg, #4CAF50, #FDD835);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .login-btn:hover {
+      background: linear-gradient(135deg, #2d6016, #F9A825);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      padding: 4rem 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      background: linear-gradient(135deg, #F1F8E9, #FFFDE7);
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      color: #2d6016;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-content p strong {
+      color: #2d6016;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: #2d6016;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Visi Misi */
+    .visi-misi {
+      padding: 5rem 5%;
+      background: white;
+    }
+
+    .vm-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .vm-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-left: 5px solid #4CAF50;
+    }
+
+    .vm-card h3 {
+      color: #2d6016;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .vm-card ol {
+      color: #555;
+      line-height: 1.8;
+      font-size: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    .vm-card ol li {
+      margin-bottom: 0.8rem;
+    }
+
+    /* Program */
+    .program {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #F1F8E9, #FFFDE7);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 3rem auto 0;
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .program-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #4CAF50, #FDD835);
+    }
+
+    .program-content {
+      padding: 1.5rem;
+    }
+
+    .program-content h4 {
+      color: #2d6016;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .program-content p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Fasilitas */
+    .fasilitas {
+      padding: 5rem 5%;
+      background: white;
+    }
+
+    .fasilitas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 3rem auto 0;
+    }
+
+    .fasilitas-card {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #F1F8E9, #FFFDE7);
+      border-radius: 15px;
+      transition: all 0.3s;
+    }
+
+    .fasilitas-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .fasilitas-card h4 {
+      color: #2d6016;
+      font-size: 1.2rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a3d0a;
+      color: white;
+      padding: 3rem 5%;
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .nav-links { display: none; }
+      .hero, .vm-container { grid-template-columns: 1fr; }
+      .hero-content h1 { font-size: 2rem; }
+      .section-header h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo-section">
+      <img src="logo.jpg" alt="Logo" class="logo-img">
+      <div class="school-info">
+        <h2>TKIT JAMILUL MU'MININ</h2>
+        <p>Generasi Qur’ani, Cerdas & Mandiri</p>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#visi">Visi & Misi</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#fasilitas">Fasilitas</a></li>
+      <li><a href="../login/login.html" class="login-btn">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>TKIT Jamilul Mu'minin</h1>
+      <p>TKIT Jamilul Mu’minin mengedepankan pembelajaran berbasis <strong>karakter Qur’ani</strong> dan pengembangan <strong>kognitif anak usia dini</strong> dengan suasana belajar menyenangkan dan Islami.</p>
+    </div>
+    <div class="hero-image">
+      <img src="foto LP.jpg" alt="Siswa TKIT">
+    </div>
+  </section>
+
+  <!-- Visi Misi -->
+  <section class="visi-misi" id="visi">
+    <div class="section-header">
+      <h2>Visi & Misi TKIT</h2>
+    </div>
+    <div class="vm-container">
+      <div class="vm-card">
+        <h3>Visi</h3>
+        <p>"Membentuk peserta didik menjadi generasi yang berakhlak mulia, cerdas, mandiri, komunikatif, dan berwawasan global."</p>
+      </div>
+      <div class="vm-card">
+        <h3>Misi</h3>
+        <ol>
+          <li>Menanamkan nilai-nilai Islam sejak dini.</li>
+          <li>Mengembangkan potensi anak melalui pembelajaran aktif dan kreatif.</li>
+          <li>Membangun karakter mandiri, komunikatif, dan tangguh.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program -->
+  <section class="program" id="program">
+    <div class="section-header">
+      <h2>Program Unggulan</h2>
+    </div>
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="program-image"></div>
+        <div class="program-content">
+          <h4>Tahfidz & Tilawah</h4>
+          <p>Program membaca dan menghafal Al-Qur’an dengan metode UMMI.</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-image"></div>
+        <div class="program-content">
+          <h4>Kegiatan Outdoor</h4>
+          <p>Belajar sambil bermain di luar ruangan untuk menumbuhkan rasa ingin tahu anak.</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-image"></div>
+        <div class="program-content">
+          <h4>Pendidikan Karakter</h4>
+          <p>Pembiasaan akhlak dan nilai Qur’ani dalam kehidupan sehari-hari.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fasilitas -->
+  <section class="fasilitas" id="fasilitas">
+    <div class="section-header">
+      <h2>Fasilitas Sekolah</h2>
+    </div>
+    <div class="fasilitas-grid">
+      <div class="fasilitas-card"><h4>Ruang Belajar Nyaman</h4></div>
+      <div class="fasilitas-card"><h4>Perpustakaan Mini</h4></div>
+      <div class="fasilitas-card"><h4>Area Bermain Outdoor</h4></div>
+      <div class="fasilitas-card"><h4>Ruang Ibadah Anak</h4></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 TKIT Jamilul Mu'minin Makassar — Generasi Qur’ani Cerdas Mandiri</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
